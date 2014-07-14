@@ -1,0 +1,14 @@
+#!/bin/bash
+
+wget -O .bashrc https://www.dropbox.com/s/ze8w4pfahtydn9d/.bashrc
+yum install xauth -y
+yum install git -y
+yum install ack -y
+wget -O .vimrc https://www.dropbox.com/s/bzphm6kwdeuub26/.vimrc
+wget -O .monitor https://www.dropbox.com/s/gj3t518zbcjk3al/.monitor
+wget -O log.vim https://www.dropbox.com/s/dqwspbgs69k6ta4/log.vim
+chmod +x .monitor
+yum install vim-X11 -y
+yum install bpython
+yum install vim -y
+source .bashrc
