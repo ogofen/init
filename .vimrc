@@ -112,8 +112,7 @@ set wildignore+=log/**
 set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
 
-"if pumvisible()
- "           imap <Down> <C-o>
+ "           im:ap <Down> <C-o>
 
 " ================ Scrolling ========================
 
@@ -124,13 +123,14 @@ set sidescroll=1
 "====== My shit =======
 
 if &term =~ "xterm\\|rxvt"
- " use an orange cursor in insert mode
+ " use an orange cursor in insecute "sh ibeam"
 	let &t_SI = "\<Esc>]12;green\x7"
-	:" VimLeave * silent execute !gconftool-2 --type string --set /apps/gnome-terminal/profiles/Profile0/cursor_shape block"
-  " use a red cursor otherwise
-	let &t_EI = "\<Esc>]12;yellow\x7"
-	"  silent !echo -ne \033]12;white\007
+	au InsertLeave * silent execute "!sh /root/block"
+	au VimLeave * silent execute "!sh /root/block"
+	au InsertEnter  * silent execute "!sh /root/ibeam"
+  " use a red cursor otherwis:e
 	" reset cursor when vim exits
+   let &t_EI = "\<Esc>]12;yellow\x7"
    "autocmd VimLeave * silent !echo -ne \033]112\007
   " use \003	]12;gray\007 for gnome-terminal
 endif

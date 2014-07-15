@@ -22,5 +22,10 @@ stty -ixon > /dev/null 2>&1
 autoload -Uz promptinit
 promptinit
 prompt walters 
+
+alias less!="vi -R /var/log/vdsm/vdsm.log -S /root/log.vim"
+# User specific aliases and functions
+ alias vi="vim"
+ alias monitor="/root/.monitor"
 # Customize to your needs...
 
