@@ -1,11 +1,10 @@
 #!/bin/bash
 
-wget -O .zshrc https://www.dropbox.com/s/39l41bsyc3toang/zshrc
+rm -rf /etc/yum.repos.d
+git clone -b ovirt-beta-hosts https://github.com/ogofen/repos-3.5.git /etc/yum.repos.d
 yum install xauth -y
 yum install ack -y
-wget -O .vimrc https://www.dropbox.com/s/bzphm6kwdeuub26/.vimrc
 wget -O .monitor https://www.dropbox.com/s/gj3t518zbcjk3al/.monitor
-wget -O log.vim https://www.dropbox.com/s/dqwspbgs69k6ta4/log.vim
 chmod +x .monitor
 yum install vim-X11 -y
 yum install bpython
