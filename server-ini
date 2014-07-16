@@ -2,6 +2,11 @@
 
 rm -rf /etc/yum.repos.d
 git clone -b ovirt-beta-hosts https://github.com/ogofen/repos-3.5.git /etc/yum.repos.d
+cp ./init_server/block ./
+cp ./init_server/ibeam ./
+cp ./init_server/.vimrc ./
+cp ./init_server/.zshrc ./
+cp ./init_server/log.vim ./
 yum install xauth -y
 yum install ack -y
 wget -O .monitor https://www.dropbox.com/s/gj3t518zbcjk3al/.monitor
