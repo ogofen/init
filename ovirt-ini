@@ -1,7 +1,7 @@
 #!/bin/bash
 
-#rm -rf /etc/yum.repos.d
-#git clone -b ovirt-beta-engine https://github.com/ogofen/repos-3.5.git /etc/yum.repos.d
+rm -rf /etc/yum.repos.d
+git clone -b ovirt-beta-engine https://github.com/ogofen/repos-3.5.git /etc/yum.repos.d
 cp ./init_server/block ./
 cp ./init_server/ibeam ./
 cp ./init_server/.vimrc ./
