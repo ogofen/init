@@ -20,4 +20,5 @@ make install
 echo "/usr/local/bin/zsh" | sudo tee -a /etc/shells
 chsh -s /usr/local/bin/zsh
 yum install vdsm
-yum upgrade reboot
+yum upgrade 
+reboot
