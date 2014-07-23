@@ -6,6 +6,7 @@
 #
 
 # Source Prezto.
+clear
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
@@ -23,7 +24,7 @@ autoload -Uz promptinit
 promptinit
 prompt walters 
 
-alias less!="vi -R /var/log/vdsm/vdsm.log -S /root/log.vim '+set nonu'"
+alias less!="vi -R /var/log/vdsm/vdsm.log -S /root/log.vim '+set nonu' '+set wrap'"
 # User specific aliases and functions
  alias vi="vim"
  alias monitor="/root/.monitor"
