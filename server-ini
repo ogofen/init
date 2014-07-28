@@ -2,9 +2,8 @@
 
 rm -rf /etc/yum.repos.d
 git clone -b ovirt-beta-hosts https://github.com/ogofen/repos-3.5.git /etc/yum.repos.d
-cp ./init_server/block ./
-cp ./init_server/ibeam ./
-cp ./init_server/.vimrc ./
+git clone https://github.com/ogofen/vim-master.git ./.vim
+cp ./.vim/.vimrc ./
 cp ./init_server/.zshrc ./
 cp ./init_server/log.vim ./
 yum install xauth -y
