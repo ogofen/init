@@ -29,12 +29,6 @@ echo monitoring host:$IP
 cd ..
 echo thanx for using "ogofen's" monitor script
 
-export FUNC=$(cat /root/vsyntax/_vdsmAPI.txt)
-export ERR=$(cat /root/vsyntax/Err.txt)
-export OK=$(cat /root/vsyntax/Ok.txt)
-export CLASS=$(cat /root/vsyntax/class.txt)
-export FILE=$(cat /root/vsyntax/file.txt)
-export REG=$(cat /root/vsyntax/regular.txt)
 
 pkill -9 tail
 pkill -9 ack
