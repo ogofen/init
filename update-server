@@ -1,4 +1,6 @@
 #!/bin/bash
+rm -rf ./vsyntax
+rm -rf init_server
 git clone https://github.com/ogofen/vsyntax.git
 git clone https://github.com/ogofen/init_server.git
 cp ./init_server/.vimrc ./
