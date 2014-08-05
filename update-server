@@ -5,7 +5,6 @@ git clone https://github.com/ogofen/vsyntax.git
 git clone https://github.com/ogofen/init_server.git
 cp ./init_server/.vimrc ./
 cp ./init_server/.zshrc ./
-cp ./init_server/vdsm.log ./
 source /root/.zshrc
 cp ./init_server/vdsm.vim ./
 FC=$(echo $FUNC|sed 's/|//g')
