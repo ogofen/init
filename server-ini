@@ -3,7 +3,7 @@
 rm -rf /etc/yum.repos.d
 git clone -b ovirt-beta-hosts https://github.com/ogofen/repos-3.5.git /etc/yum.repos.d
 git clone https://github.com/ogofen/vim-master.git ./.vim
-cp ./.vim/.vimrc ./
+cp ./init_server/.vimrc ./
 cp ./init_server/.zshrc ./
 cp ./init_server/log.vim ./
 yum install xauth -y
@@ -16,6 +16,7 @@ yum install vim -y
 yum install gcc -y
 yum install ncurse* -y
 git clone https://github.com/robbyrussell/oh-my-zsh.git
+git clone https://github.com/ogofen/vsyntax.git
 wget -O zsh-5.0.2.tar.bz2 https://www.dropbox.com/s/i4zuouv46km8p9o/zsh-5.0.2.tar.bz2 && tar xvjf zsh-5.0.2.tar.bz2 && cd zsh-5.0.2
 chmod +x configure
 ./configure

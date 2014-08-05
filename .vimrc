@@ -1,7 +1,7 @@
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
-imap <C-Down> <Left><Right><Down>
+execute pathogen#infect()
 "let g:ycm_filetype_specific_completion_to_disable={ 'cpp' :1}
 "let g:ycm_show_diagnostics_ui = 0
 " TODO: this may not be in the correct place. It is intended to allow overriding <Leader>.
@@ -33,20 +33,23 @@ syntax on
 " That means all \x commands turn into ,x
 " The mapleader has to be set before vundle starts loading all 
 " the plugins.
-
+let g:acp_nextItemMapping = ['<TAB>', '\<lt>TAB>']
 let g:mapleader = "'"
 nmap <S-g> :e<cr>:$<cr>:source /root/log.vim<cr>
 function! Foo()
    :qa!
 endfunction
-
-
+colorscheme cool
+hi EasyMotionShade guibg=white ctermfg=white
+highlight Pmenu ctermfg=white ctermbg=lightblue
+highlight PmenuSel ctermfg=white ctermbg=magenta
 imap <C-z> <C-o>:qa!<cr>
 " Fast saving
 nmap <leader>w :w!<cr>
 nmap <leader>q :q<cr>
 nmap <leader>z :execute Foo()<cr>
 nmap <leader>x :x!<cr>
+imap <C-a> :call QuickfixToggle()<cr>
 
 " =============== Vundle Initialization ===============
 " This loads all the plugins specified in ~/.vim/vundle.vim
@@ -54,14 +57,23 @@ nmap <leader>x :x!<cr>
 if filereadable(expand("~/.vim/vundles.vim"))
   source ~/.vim/vundles.vim
 endif
-
-
+nmap i <insert>
 " ================ Turn Off Swap Files ==============
+
 
 set noswapfile
 set nobackup
 set nowb
-
+let g:quickfix_is_open = 0
+function! QuickfixToggle()
+    if g:quickfix_is_open
+        let g:quickfix_is_open = 0
+		set paste
+    else
+		set nopaste
+        let g:quickfix_is_open = 1
+    endif
+endfunction
 " ================ Persistent Undo ==================
 " Keep undo history across sessions, by storing in file.
 " Only works all the time.
@@ -112,29 +124,23 @@ set wildignore+=log/**
 set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
 
- "           im:ap <Down> <C-o>
-
+imap <C-t> <C-o>:NERDTree<cr>
+nmap <C-t> :NERDTree<cr>
 " ================ Scrolling ========================
 
 set scrolloff=8         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
-
 "====== My shit =======
 
-if &term =~ "xterm\\|rxvt"
- " use an orange cursor in insecute "sh ibeam"
-	let &t_SI = "\<Esc>]12;green\x7"
-	au InsertLeave * silent execute "!sh /root/block"
-	au VimLeave * silent execute "!sh /root/block"
-	au InsertEnter  * silent execute "!sh /root/ibeam"
-  " use a red cursor otherwis:e
+" use an orange cursor in insert mode
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+"  silent !echo -ne \033]12;white\007
 	" reset cursor when vim exits
-   let &t_EI = "\<Esc>]12;yellow\x7"
-   "autocmd VimLeave * silent !echo -ne \033]112\007
+autocmd VimLeave * silent !echo -ne \033]112\007
+autocmd InsertLeave * set nopaste
   " use \003	]12;gray\007 for gnome-terminal
-endif
-
 function! Log()
 	hi Error ctermfg=red
 	hi File ctermfg=3
@@ -146,18 +152,14 @@ function! Log()
 	match Command /getReadDelay _getDiskStats _getDiskLatency reloadlvs/
 endfunction
 
-function! Log1()
-	silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Profile0/cursor_shape ibeam"
-	endfunction
 
-
+let g:acp_mappingDriven = 1
 set autochdir
 
-imap <C-Left>     <esc>:tabp<CR>i
+imap <C-Left>     <esc>:tabp<CR><ins>
 nmap <C-Left>		   :tabp<CR>
-imap <C-right>     <esc>:tabn<CR>i
+imap <C-right>     <esc>:tabn<CR><ins>
 nmap <C-right>			:tabn<CR>
-nmap <CR> i<CR><esc>
 "imap <C-Left> <C-o>:wincmd h<cr>
 "imap <C-Right> <C-o>:wincmd k<cr>
 "nmap <C-Left> :wincmd h<cr>
@@ -169,8 +171,6 @@ nmap <C-e>       :Error<CR>
 imap <C-e> <Nop>
 imap <C-e>  <C-o>:Error<CR>
 imap <C-]>  <C-o>:
-imap <c-\> <A-Down>:close<CR>
-nmap <c-\> <A-Down>:close<CR>
 "============ statusline =============
 set statusline+=%#warningmsg#
 set statusline+=%*
@@ -209,7 +209,6 @@ nmap <C-z> <NOP>
 nmap <C-z> u
 nmap r :redo<cr>
 imap <C-u>  <C-o><Leader><Leader>b
-imap <C-d>  <C-o><Leader><Leader>w
 imap <C-w>  <C-o>e
 imap <C-b>  <C-o>b
 vmap <S-Down> j
@@ -220,16 +219,12 @@ vmap <Right> v<Right>
 vmap <C-c> y
 imap <C-f> <esc>:MRU<CR>
 nmap <C-f>		:MRU<CR>
-"========save?===
-nmap <c-s> :w<CR>
-imap <c-s> <C-o>:w<CR>
+"========save?====
+nmap <C-s> :w!<cr>
+imap <C-s> <C-o>:w!<cr>
 set guioptions-=r
 set guioptions-=T
 
-imap <A-;> <nop>
-imap <A-;> <C-o>:
-nmap <A-;> :
-vmap <A-;> :
 nmap a <nop>
 nmap s <nop>
 imap <C-v> <C-o>P

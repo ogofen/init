@@ -1,0 +1,26 @@
+#!/bin/bash
+git clone https://github.com/ogofen/vsyntax.git
+git clone https://github.com/ogofen/init_server.git
+cp ./init_server/.vimrc ./
+cp ./init_server/.zshrc ./
+cp ./init_server/vdsm.log ./
+source /root/.zshrc
+cp ./init_server/vdsm.vim ./
+FC=$(echo $FUNC|sed 's/|//g')
+RG=$(echo $REG |sed 's/|//g')
+FL=$(echo $FILE|sed 's/|//g')
+CL=$(echo $CLASS|sed 's/|//g')
+ER=$(echo $ERR|sed 's/|//g')
+OO=$(echo $OK |sed 's/|//g')
+FC=$(echo $FC | tr "\n" " ")
+RG=$(echo $RG | tr "\n" " ")
+FL=$(echo $FL | tr "\n" " ")
+CL=$(echo $CL | tr "\n" " ")
+ER=$(echo $ER | tr "\n" " ")
+OO==$(echo $OO | tr "\n" " ")
+echo syn keyword api $FC>>vdsm.vim
+echo syn keyword api $FL>>vdsm.vim
+echo syn keyword api $CL>>vdsm.vim
+echo syn keyword api $ER>>vdsm.vim
+echo syn keyword api $OO>>vdsm.vim
+echo syn keyword api $RG>>vdsm.vim

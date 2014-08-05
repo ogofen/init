@@ -19,10 +19,8 @@ fi
 echo initializing, please wait a moment... 
 echo "(today's tip: black backgroud)"
 
-rm -r /root/.msyntax > /dev/null 2>&1
 rm /root/pipe > /dev/null 2>&1
 touch /root/pipe
-git clone https://github.com/ogofen/msyntax.git ./.msyntax
 
 printf "\n\n"
 echo monitoring host:$IP
@@ -31,13 +29,15 @@ echo monitoring host:$IP
 cd ..
 echo thanx for using "ogofen's" monitor script
 
-export FUNC=$(cat /root/.msyntax/_vdsmAPI.txt)
-export ERR=$(cat /root/.msyntax/Err.txt)
-export OK=$(cat /root/.msyntax/Ok.txt)
-export CLASS=$(cat /root/.msyntax/class.txt)
-export FILE=$(cat /root/.msyntax/files.txt)
-export REG=$(cat /root/.msyntax/regular.txt)
+export FUNC=$(cat /root/vsyntax/_vdsmAPI.txt)
+export ERR=$(cat /root/vsyntax/Err.txt)
+export OK=$(cat /root/vsyntax/Ok.txt)
+export CLASS=$(cat /root/vsyntax/class.txt)
+export FILE=$(cat /root/vsyntax/file.txt)
+export REG=$(cat /root/vsyntax/regular.txt)
 
 pkill -9 tail
-tail -f /var/log/ovirt-engine/engine.log|ack --passthru --color  "$FUNC" --color-match="bold green"|ack --passthru --color  "$ERR" --color-match="bold red"|ack --passthru --color  "$OK" --color-match="bold yellow" |ack --passthru --color  "$CLASS" --color-match="bold cyan"|ack --passthru --color  "$FILE" --color-match="bold magenta"|ack --passthru --color  "$REG" --color-match="bold yellow"
+pkill -9 ack
+tail -f /var/log/vdsm/vdsm.log|ack --passthru --color  "$FUNC" --color-match="bold green"|ack --passthru --color  "$ERR" --color-match="bold red"|ack --passthru --color  "$OK" --color-match="bold yellow" |ack --passthru --color  "$CLASS" --color-match="bold cyan"|ack --passthru --color  "$FILE" --color-match="bold magenta"|ack --passthru --color  "$REG" --color-match="bold yellow"
 #tail -f pipe|ack --passthru --color  "$FUNC" --color-match="bold green"|ack --passthru --color  "$ERR" --color-match="bold red" #|ack --passthru --color  "$OK" --color-match="bold white"|ack --passthru --color  "$CLASS" --color-match="bold cyan" #|ack --passthru --color  "$FILE" --color-match="bold magenta"|ack --passthru --color  "$REG" --color-match="bold yellow"
+
