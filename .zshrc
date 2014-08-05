@@ -21,8 +21,7 @@ set agnoster
 autoload -Uz promptinit > /dev/null 2>&1
 promptinit > /dev/null 2>&1
 prompt adam1 > /dev/null 2>&1
-alias less!="vim -u NONE -R /var/log/vdsm/vdsm.log -S /root/log.vim '+set nonu' '+set wrap'"
-alias less2="vim -u NONE -R /var/log/vdsm/vdsm.log -S /root/vdsm.vim '+set nonu' '+set wrap'"
+alias less!="vim -u NONE -R /var/log/vdsm/vdsm.log -S /root/vdsm.vim '+set nonu' '+set wrap'"
 # User specific aliases and functions
  alias vi="vim"
  alias monitor="/root/.monitor"
