@@ -31,7 +31,7 @@ OK=$(cat /root/vsyntax/Ok.txt)
 CLASS=$(cat /root/vsyntax/class.txt)
 FILE=$(cat /root/vsyntax/file.txt)
 REG=$(cat /root/vsyntax/regular.txt)
-ERR=$(cat /root/vsyntax/.Err.txt)
+ERR=$(cat /root/vsyntax/Err.txt)
 FUNC=$(cat /root/vsyntax/_vdsmAPI.txt)
 export OK
 export CLASS
