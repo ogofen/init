@@ -13,14 +13,14 @@ fi
 plugins=(git)
 ZSH_THEME="bira"
 export ZSH=/root/oh-my-zsh
-setopt extended_glob
+setopt extended_glob > /dev/null 2>&1
 source $ZSH/oh-my-zsh.sh
-bindkey -s "^[e" "^qgit_prompt_info\n"
+bindkey -s "^[e" "^qgit_prompt_info\n" > /dev/null 2>&1
 set agnoster
 #set +oglob
-autoload -Uz promptinit
-promptinit
-prompt adam1
+autoload -Uz promptinit > /dev/null 2>&1
+promptinit > /dev/null 2>&1
+prompt adam1 > /dev/null 2>&1
 alias less!="vim -u NONE -R /var/log/vdsm/vdsm.log -S /root/log.vim '+set nonu' '+set wrap'"
 alias less2="vim -u NONE -R /var/log/vdsm/vdsm.log -S /root/vdsm.vim '+set nonu' '+set wrap'"
 # User specific aliases and functions
