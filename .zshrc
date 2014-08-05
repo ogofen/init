@@ -14,7 +14,7 @@ plugins=(git)
 ZSH_THEME="bira"
 export ZSH=/root/oh-my-zsh
 setopt extended_glob > /dev/null 2>&1
-source $ZSH/oh-my-zsh.sh
+source $ZSH/oh-my-zsh.sh > /dev/null 2>&1
 bindkey -s "^[e" "^qgit_prompt_info\n" > /dev/null 2>&1
 set agnoster
 #set +oglob
