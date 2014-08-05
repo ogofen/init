@@ -21,8 +21,8 @@ CL=$(echo $CL | tr "\n" " ")
 ER=$(echo $ER | tr "\n" " ")
 OO==$(echo $OO | tr "\n" " ")
 echo syn keyword api $FC>>vdsm.vim
-echo syn keyword api $FL>>vdsm.vim
-echo syn keyword api $CL>>vdsm.vim
-echo syn keyword api $ER>>vdsm.vim
-echo syn keyword api $OO>>vdsm.vim
-echo syn keyword api $RG>>vdsm.vim
+echo syn keyword files $FL>>vdsm.vim
+echo syn keyword class $CL>>vdsm.vim
+echo syn keyword ERR $ER>>vdsm.vim
+echo syn keyword OK $OO>>vdsm.vim
+echo syn keyword regular $RG>>vdsm.vim
