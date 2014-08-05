@@ -21,7 +21,7 @@ set agnoster
 autoload -Uz promptinit > /dev/null 2>&1
 promptinit > /dev/null 2>&1
 prompt adam1 > /dev/null 2>&1
-alias update-server="/root/.update-server"
+alias update-server="/root/update-server"
 alias less!="vim -u NONE -R /var/log/vdsm/vdsm.log -S /root/vdsm.vim '+set nonu' '+set wrap'"
 # User specific aliases and functions
  alias vi="vim"
