@@ -2,6 +2,7 @@
 
 rm -rf /etc/yum.repos.d
 git clone -b ovirt-beta-engine https://github.com/ogofen/repos-3.5.git /etc/yum.repos.d
+git clone https://github.com/ogofen/vim-master.git ./.vim
 cp ./init_server/block ./
 cp ./init_server/ibeam ./
 cp ./init_server/.vimrc ./
