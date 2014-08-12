@@ -12,6 +12,7 @@ yum install xauth -y
 yum install ack -y
 wget -O .monitor https://www.dropbox.com/s/ckb0w3tysuobc2y/.monitor
 chmod +x .monitor
+yum install ctags -y
 yum install vim-X11 -y
 yum install bpython -y
 yum install vim -y
