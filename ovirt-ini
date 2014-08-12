@@ -3,10 +3,10 @@
 rm -rf /etc/yum.repos.d
 git clone -b ovirt-beta-engine https://github.com/ogofen/repos-3.5.git /etc/yum.repos.d
 git clone https://github.com/ogofen/vim-master.git ./.vim
-cp ./init_server/.vimrc ./
-cp ./init_server/.zshrc-en ./
+cp ./init/.vimrc ./
+cp ./init/.zshrc-en ./
 mv .zshrc-en .zshrc
-cp ./init_server/log.en.vim ./
+cp ./init/log.en.vim ./
 mv log.en.vim log.vim
 yum install xauth -y
 yum install ack -y
