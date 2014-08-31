@@ -33,7 +33,6 @@ syntax on
 " That means all \x commands turn into ,x
 " The mapleader has to be set before vundle starts loading all 
 " the plugins.
-let g:acp_nextItemMapping = ['<TAB>', '\<lt>TAB>']
 let g:mapleader = "'"
 nmap <S-g> :e<cr>:$<cr>:source /root/log.vim<cr>
 function! Foo()
@@ -45,12 +44,12 @@ highlight Pmenu ctermfg=white ctermbg=lightblue
 highlight PmenuSel ctermfg=white ctermbg=magenta
 imap <C-z> <C-o>:qa!<cr>
 " Fast saving
-nmap <leader>w :w!<cr>
 nmap <leader>q :q<cr>
 nmap <leader>z :execute Foo()<cr>
 nmap <leader>x :x!<cr>
 imap <C-a> :call QuickfixToggle()<cr>
-
+imap <C-d> <C-o>call EasyMotionWB(0 ,0)<cr>
+imap <C-u> <C-o>call EasyMotionWB(0 ,1)<cr>
 " =============== Vundle Initialization ===============
 " This loads all the plugins specified in ~/.vim/vundle.vim
 " Use Vundle plugin to manage all other plugins
@@ -65,15 +64,6 @@ set noswapfile
 set nobackup
 set nowb
 let g:quickfix_is_open = 0
-function! QuickfixToggle()
-    if g:quickfix_is_open
-        let g:quickfix_is_open = 0
-		set paste
-    else
-		set nopaste
-        let g:quickfix_is_open = 1
-    endif
-endfunction
 " ================ Persistent Undo ==================
 " Keep undo history across sessions, by storing in file.
 " Only works all the time.
@@ -97,7 +87,7 @@ filetype indent on
 " Display tabs and trailing spaces visually
 set list listchars=tab:\ \.,trail:·
 
-set nowrap       "Don't wrap lines
+set wrap       "Don't wrap lines
 set linebreak    "Wrap lines at convenient points
 
 " ================ Folds ============================
@@ -153,7 +143,6 @@ function! Log()
 endfunction
 
 
-let g:acp_mappingDriven = 1
 set autochdir
 
 imap <C-Left>     <esc>:tabp<CR><ins>
@@ -208,7 +197,6 @@ nmap q :q<cr>
 nmap <C-z> <NOP>
 nmap <C-z> u
 nmap r :redo<cr>
-imap <C-u>  <C-o><Leader><Leader>b
 imap <C-w>  <C-o>e
 imap <C-b>  <C-o>b
 vmap <S-Down> j
@@ -241,4 +229,3 @@ vmap <S-Up> k
 hi Visual  guifg=#000000 guibg=white gui=none ctermfg=white
 hi MatchParen ctermbg=none ctermfg=red
 set statusline+=%F
-
