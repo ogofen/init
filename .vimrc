@@ -26,6 +26,7 @@ set laststatus=2
 " exist in the background without being in a window.
 " http://items.sjbach.com/319/configuring-vim-right
 set hidden
+set expandtab
 "turn on syntax highlighting
 syntax on
 "imap <C-shift-z> <c-o>:redo<cr>
@@ -34,6 +35,7 @@ syntax on
 " The mapleader has to be set before vundle starts loading all 
 " the plugins.
 let g:mapleader = "'"
+let g:acp_mappingDriven =0
 nmap <S-g> :e<cr>:$<cr>:source /root/log.vim<cr>
 function! Foo()
    :qa!
@@ -42,7 +44,6 @@ colorscheme cool
 hi EasyMotionShade guibg=white ctermfg=white
 highlight Pmenu ctermfg=white ctermbg=lightblue
 highlight PmenuSel ctermfg=white ctermbg=magenta
-imap <C-z> <C-o>:qa!<cr>
 " Fast saving
 nmap <leader>q :q<cr>
 nmap <leader>z :execute Foo()<cr>
@@ -56,9 +57,7 @@ imap <C-u> <C-o>call EasyMotionWB(0 ,1)<cr>
 if filereadable(expand("~/.vim/vundles.vim"))
   source ~/.vim/vundles.vim
 endif
-nmap i <insert>
 " ================ Turn Off Swap Files ==============
-
 
 set noswapfile
 set nobackup
@@ -129,22 +128,8 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 "  silent !echo -ne \033]12;white\007
 	" reset cursor when vim exits
 autocmd VimLeave * silent !echo -ne \033]112\007
-autocmd InsertLeave * set nopaste
   " use \003	]12;gray\007 for gnome-terminal
-function! Log()
-	hi Error ctermfg=red
-	hi File ctermfg=3
-	hi class ctermfg=cyan
-	hi Command ctermfg=green
-	hi Ok ctermfg=white
-	hi Regular ctermfg=yellow
-
-	match Command /getReadDelay _getDiskStats _getDiskLatency reloadlvs/
-endfunction
-
-
 set autochdir
-
 imap <C-Left>     <esc>:tabp<CR><ins>
 nmap <C-Left>		   :tabp<CR>
 imap <C-right>     <esc>:tabn<CR><ins>
@@ -153,7 +138,6 @@ nmap <C-right>			:tabn<CR>
 "imap <C-Right> <C-o>:wincmd k<cr>
 "nmap <C-Left> :wincmd h<cr>
 "nmap <C-Right> :wincmd k<cr>
-
 let g:session_autosave = 'yes'
 vmap <C-x> d
 nmap <C-e>       :Error<CR>
@@ -194,9 +178,6 @@ set guitablabel=%!GuiTabLabeler()
 nmap q :q<cr>
 
 "========== Insert Mode mappings =======
-nmap <C-z> <NOP>
-nmap <C-z> u
-nmap r :redo<cr>
 imap <C-w>  <C-o>e
 imap <C-b>  <C-o>b
 vmap <S-Down> j
@@ -229,3 +210,6 @@ vmap <S-Up> k
 hi Visual  guifg=#000000 guibg=white gui=none ctermfg=white
 hi MatchParen ctermbg=none ctermfg=red
 set statusline+=%F
+hi TabLine ctermfg=yellow ctermbg=blue
+hi TabLineSel ctermfg=yellow ctermbg=white
+
