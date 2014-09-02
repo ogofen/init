@@ -1,9 +1,9 @@
 #!/bin/bash
 
 git clone https://github.com/ogofen/vim-master.git ./.vim
-cp ./init_server/.vimrc ./
-cp ./init_server/.zshrc ./
-cp ./init_server/log.vim ./
+cp ./init/.vimrc ./
+cp ./init/.zshrc ./
+cp ./init/log.vim ./
 yum install xauth -y
 yum install ack -y
 cp ./init/.monitor ./
