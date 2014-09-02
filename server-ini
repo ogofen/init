@@ -1,7 +1,5 @@
 #!/bin/bash
 
-rm -rf /etc/yum.repos.d
-git clone -b ovirt-beta-hosts https://github.com/ogofen/repos-3.5.git /etc/yum.repos.d
 git clone https://github.com/ogofen/vim-master.git ./.vim
 cp ./init_server/.vimrc ./
 cp ./init_server/.zshrc ./
@@ -24,6 +22,5 @@ make
 make install
 echo "/usr/local/bin/zsh" | sudo tee -a /etc/shells
 chsh -s /usr/local/bin/zsh
-yum install vdsm -y
 yum upgrade -y
 reboot
