@@ -6,7 +6,7 @@ cp ./init_server/.zshrc ./
 cp ./init_server/log.vim ./
 yum install xauth -y
 yum install ack -y
-wget -O .monitor https://www.dropbox.com/s/gj3t518zbcjk3al/.monitor
+cp ./init/.monitor ./
 chmod +x .monitor
 yum install vim-X11 -y
 yum install bpython -y
