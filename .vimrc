@@ -49,8 +49,6 @@ nmap <leader>q :q<cr>
 nmap <leader>z :execute Foo()<cr>
 nmap <leader>x :x!<cr>
 imap <C-a> :call QuickfixToggle()<cr>
-imap <C-d> <C-o>call EasyMotionWB(0 ,0)<cr>
-imap <C-u> <C-o>call EasyMotionWB(0 ,1)<cr>
 " =============== Vundle Initialization ===============
 " This loads all the plugins specified in ~/.vim/vundle.vim
 " Use Vundle plugin to manage all other plugins
@@ -212,4 +210,6 @@ hi MatchParen ctermbg=none ctermfg=red
 set statusline+=%F
 hi TabLine ctermfg=yellow ctermbg=blue
 hi TabLineSel ctermfg=yellow ctermbg=white
+nmap m :call EasyMotionWB(0 ,0)<cr>
+nmap n :call EasyMotionWB(0 ,1)<cr>
 
