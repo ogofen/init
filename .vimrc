@@ -141,7 +141,8 @@ vmap <C-x> d
 nmap <C-e>       :Error<CR>
 imap <C-e> <Nop>
 imap <C-e>  <C-o>:Error<CR>
-imap <C-]>  <C-o>:
+imap <C-]>  <C-o>:set nopaste<cr>
+imap <C-\>  <C-o>:set paste<cr>
 "============ statusline =============
 set statusline+=%#warningmsg#
 set statusline+=%*
