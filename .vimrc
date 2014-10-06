@@ -126,6 +126,8 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 "  silent !echo -ne \033]12;white\007
 	" reset cursor when vim exits
 autocmd VimLeave * silent !echo -ne \033]112\007
+autocmd InsertLeave * silent set nopaste
+
   " use \003	]12;gray\007 for gnome-terminal
 set autochdir
 imap <C-Left>     <esc>:tabp<CR><ins>
@@ -141,7 +143,6 @@ vmap <C-x> d
 nmap <C-e>       :Error<CR>
 imap <C-e> <Nop>
 imap <C-e>  <C-o>:Error<CR>
-imap <C-]>  <C-o>:set nopaste<cr>
 imap <C-\>  <C-o>:set paste<cr>
 "============ statusline =============
 set statusline+=%#warningmsg#
