@@ -7,7 +7,8 @@ yum install bpython -y
 yum install vim -y
 yum install gcc -y
 yum install ncurse* -y
-git clone https://github.com/ogofen/vim-master.git ./.vim
+yum install ctags -y
+git clone https://github.com/ogofen/vim ./.vim
 cp init/.vimrc ./
 git clone https://github.com/robbyrussell/oh-my-zsh.git
 wget -O zsh-5.0.2.tar.bz2 https://www.dropbox.com/s/i4zuouv46km8p9o/zsh-5.0.2.tar.bz2 && tar xvjf zsh-5.0.2.tar.bz2 && cd zsh-5.0.2
