@@ -27,6 +27,9 @@ set laststatus=2
 " http://items.sjbach.com/319/configuring-vim-right
 set hidden
 set expandtab
+nmap a <nop>
+nmap a :set paste<cr>i
+au InsertLeave * silent execute "set nopaste"
 "turn on syntax highlighting
 syntax on
 "imap <C-shift-z> <c-o>:redo<cr>
