@@ -215,6 +215,6 @@ hi MatchParen ctermbg=none ctermfg=red
 set statusline+=%F
 hi TabLine ctermfg=yellow ctermbg=blue
 hi TabLineSel ctermfg=yellow ctermbg=white
-nmap m :call EasyMotionWB(0 ,0)<cr>
-nmap n :call EasyMotionWB(0 ,1)<cr>
+nmap > :call EasyMotionWB(0 ,0)<cr>
+nmap < :call EasyMotionWB(0 ,1)<cr>
 
