@@ -11,10 +11,6 @@ yum install ctags -y
 git clone https://github.com/ogofen/vim ./.vim
 cp init/.vimrc ./
 git clone https://github.com/robbyrussell/oh-my-zsh.git
-wget -O zsh-5.0.2.tar.bz2 https://www.dropbox.com/s/i4zuouv46km8p9o/zsh-5.0.2.tar.bz2 && tar xvjf zsh-5.0.2.tar.bz2 && cd zsh-5.0.2
-chmod +x configure
-./configure
-make
-make install
-echo "/usr/local/bin/zsh" | sudo tee -a /etc/shells
-chsh -s /usr/local/bin/zsh
+yum install zsh -y
+echo "/bin/zsh" | sudo tee -a /etc/shells
+chsh -s /bin/zsh
