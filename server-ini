@@ -10,6 +10,7 @@ yum install ncurse* -y
 yum install ctags -y
 git clone https://github.com/ogofen/vim ./.vim
 cp init/.vimrc ./
+git clone http://git.tiker.net/trees/pudb.git
 git clone https://github.com/ogofen/engine-tools.git
 git clone https://github.com/ogofen/vdsm-tools.git
 git clone https://github.com/robbyrussell/oh-my-zsh.git
