@@ -11,7 +11,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 plugins=(git)
-ZSH_THEME="bira"
+ZSH_THEME="adam1"
 export ZSH=/root/oh-my-zsh
 setopt extended_glob > /dev/null 2>&1
 source $ZSH/oh-my-zsh.sh > /dev/null 2>&1
